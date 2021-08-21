@@ -31,7 +31,7 @@ func main() {
 
 	variables()
 	choices(2)
-	// loops()
+	loops(3)
 }
 
 func greeting(name string) {
@@ -126,5 +126,25 @@ func choices(n int) {
 	}
 }
 
+func loops(n int) {
+	for i := 0; i < n; i++ {
+		fmt.Printf("i=%d, n=%d\n", i, n)
+	}
 
+	i := 0
+
+	for i < n {
+		fmt.Printf("i=%d, n=%d\n", i, n)
+		i++
+	}
+
+	for {
+		if n--; n < 0 {
+			break
+		}
+
+		fmt.Printf("n=%d\n", n)
+	}
+
+}
 ```

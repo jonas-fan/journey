@@ -1,1 +1,3 @@
-# journey
+# Journey
+
+Just notes.

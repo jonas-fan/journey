@@ -1,9 +1,10 @@
 # Cryptography
 
-- [Classic cryptography](#classic-cryptography)
-- [Morden cryptography](#morden-cryptography)
-    - [Symmetric encryption](#symmetric-encryption)
-    - [Asymmetric encryption](#asymmetric-encryption)
+- [Classic Cryptography](#classic-cryptography)
+    - [Caesar Cipher (Shift Cipher)](#caesar-cipher-shift-cipher)
+- [Morden Cryptography](#morden-cryptography)
+    - [Symmetric Encryption](#symmetric-encryption)
+    - [Asymmetric Encryption](#asymmetric-encryption)
 - [Integrity, Authentication, and Non-repudiation](#integrity-authentication-and-non-repudiation)
     - [Hash](#hash)
     - [Message Authentication Code (MAC)](#message-authentication-code-mac)
@@ -13,7 +14,7 @@
 
 Entire system MUST be a secret.
 
-### Caesar chiper
+### Caesar Cipher (Shift Cipher)
 
 Rotating each letter in a plaintext with a fixed number.
 

@@ -4,7 +4,7 @@
 - [Morden cryptography](#morden-cryptography)
     - [Symmetric encryption](#symmetric-encryption)
     - [Asymmetric encryption](#asymmetric-encryption)
-- [Integrity and Authentication](#integrity-and-authentication)
+- [Integrity, Authentication, and Non-repudiation](#integrity-authentication-and-non-repudiation)
     - [Hash](#hash)
     - [Message Authentication Code (MAC)](#message-authentication-code-mac)
     - [Digital Signature](#digital-signature)
@@ -71,7 +71,13 @@ B | plaintext |  <- decrypt --  | ciphertext |
   A's public key
 ```
 
-## Integrity and Authentication
+## Integrity, Authentication, and Non-repudiation
+
+| Approach                          | Integrity | Authentication | Non-repudiation |
+|-----------------------------------|-----------|----------------|-----------------|
+| Hash                              | O         | X              | X               |
+| Message Authentication Code (MAC) | O         | O              | X               |
+| Digital Signature                 | O         | O              | O               |
 
 ### Hash
 

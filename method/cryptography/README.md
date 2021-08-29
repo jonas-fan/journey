@@ -74,11 +74,11 @@ B | plaintext |  <- decrypt --  | ciphertext |
 
 ## Integrity, Authentication, and Non-repudiation
 
-| Approach                          | Integrity | Authentication | Non-repudiation |
-|-----------------------------------|-----------|----------------|-----------------|
-| Hash                              | O         | X              | X               |
-| Message Authentication Code (MAC) | O         | O              | X               |
-| Digital Signature                 | O         | O              | O               |
+|                 | Hash | Message Authentication Code (MAC) | Digital Signature |
+|-----------------|------|-----------------------------------|-------------------|
+| Integrity       | O    | O                                 | O                 |
+| Authentication  | X    | O                                 | O                 |
+| Non-repudiation | X    | X                                 | O                 |
 
 ### Hash
 
@@ -118,33 +118,33 @@ B | message |                       | mac |
 ```
   A's public and private key
   B's public key
-  +---------+              +----------+                 +-----------+
-A | message |  -- hash ->  | hash sum |  -- encrypt ->  | signature |
-  +---------+              +----------+  w/ A's pri key +-----------+
-       |                                                      |
-       |              +---------------------+                 |
-       +----------->  | message | signature |  <--------------+
-                      +---------------------+
-                               ////
-                               \\\\
-                              channel
-                               ////
-                               \\\\
-                      +---------------------+
-       +------------  | message | signature |  ---------------+
-       |              +---------------------+                 |
-       |                                                      |
-       |                   +----------+                 +-----------+
-       |                   | hash sum |  <- decrypt --  | signature |
-       |                   +----------+  w/ A's pub key +-----------+
-       |                        |
-       |                        v
-       |                       same?
-       |                        ^
-       |                        |
-  +---------+              +----------+
-B | message |  -- hash ->  | hash sum |
-  +---------+              +----------+
+  +---------+              +--------+                 +-----------+
+A | message |  -- hash ->  | digest |  -- encrypt ->  | signature |
+  +---------+              +--------+  w/ A's pri key +-----------+
+       |                                                    |
+       |             +---------------------+                |
+       +---------->  | message | signature |  <-------------+
+                     +---------------------+
+                              ////
+                              \\\\
+                             channel
+                              ////
+                              \\\\
+                     +---------------------+
+       +-----------  | message | signature |  --------------+
+       |             +---------------------+                |
+       |                                                    |
+       |                   +--------+                 +-----------+
+       |                   | digest |  <- decrypt --  | signature |
+       |                   +--------+  w/ A's pub key +-----------+
+       |                       |
+       |                       v
+       |                      same?
+       |                       ^
+       |                       |
+  +---------+              +--------+
+B | message |  -- hash ->  | digest |
+  +---------+              +--------+
   B's public and private key
   A's public key
 ```

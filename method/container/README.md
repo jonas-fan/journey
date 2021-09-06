@@ -1,6 +1,6 @@
 # Container
 
-- [Specification](#specifications)
+- [Specification](#specification)
 
 ## Specification
 

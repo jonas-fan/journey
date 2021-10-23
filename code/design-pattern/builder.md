@@ -1,6 +1,6 @@
 # Builder Pattern
 
-## GO
+## Go
 
 ```go
 package main

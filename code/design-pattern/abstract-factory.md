@@ -9,57 +9,44 @@ import (
 	"fmt"
 )
 
-// Car and factory definition
-type Engine interface {
-	Vendor() string
+type EngineFactory interface {
+	NewEngine() string
 }
 
-type Wheel interface {
-	Vendor() string
+type WheelFactory interface {
+	NewWheel() string
 }
 
 type CarFactory interface {
-	NewEngine() Engine
-	NewWheel() Wheel
+	EngineFactory
+	WheelFactory
 }
 
-// Toyota factory
-type ToyotaEngine struct{}
+type ToyotaCarFactory struct{}
 
-func (e *ToyotaEngine) Vendor() string {
-	return "Toyota"
+func (f *ToyotaCarFactory) NewEngine() string {
+	return "an engine made by Toyota"
 }
 
-type ToyotaWheel struct{}
-
-func (w *ToyotaWheel) Vendor() string {
-	return "Toyota"
-}
-
-type ToyotaFactory struct{}
-
-func (f *ToyotaFactory) NewEngine() Engine {
-	return &ToyotaEngine{}
-}
-
-func (f *ToyotaFactory) NewWheel() Wheel {
-	return &ToyotaWheel{}
+func (f *ToyotaCarFactory) NewWheel() string {
+	return "a wheel made by Toyota"
 }
 
 func FromToyota() CarFactory {
-	return &ToyotaFactory{}
-}
-
-// Producer
-func ProduceCar(factory CarFactory) {
-	engine := factory.NewEngine()
-	wheel := factory.NewWheel()
-
-	fmt.Printf("Produced an engine of %q\n", engine.Vendor())
-	fmt.Printf("Produced a wheel of %q\n", wheel.Vendor())
+	return &ToyotaCarFactory{}
 }
 
 func main() {
-	ProduceCar(FromToyota())
+	var factory CarFactory
+
+	factory = FromToyota()
+
+	fmt.Printf("Produced %s\n", factory.NewEngine())
+	fmt.Printf("Produced %s\n", factory.NewWheel())
 }
+```
+
+```
+Produced an engine made by Toyota
+Produced a wheel made by Toyota
 ```

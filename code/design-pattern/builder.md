@@ -49,3 +49,7 @@ func main() {
 	fmt.Printf("Produced a \"%s %s\" camera\n", camera.Vendor, camera.Model)
 }
 ```
+
+```
+Produced a "Nikon D750" camera
+```

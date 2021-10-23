@@ -9,14 +9,12 @@ import (
 	"fmt"
 )
 
-// Camera interface and factory definition
 type Camera interface {
 	Vendor() string
 }
 
 type CameraFactoryFn func() Camera
 
-// Nikon camera and factory
 type NikonCamera struct{}
 
 func (n *NikonCamera) Vendor() string {
@@ -27,28 +25,21 @@ func FromNikon() Camera {
 	return &NikonCamera{}
 }
 
-// Canon camera and factory
-type CanonCamera struct{}
+func main() {
+	var factoryFn CameraFactoryFn
 
-func (c *CanonCamera) Vendor() string {
-	return "Canon"
-}
+	factoryFn = FromNikon
 
-func FromCanon() Camera {
-	return &CanonCamera{}
-}
-
-// Producer
-func ProduceCamera(factoryFn CameraFactoryFn, num uint) {
-	for ; num != 0; num-- {
+	for i := 0; i < 3; i++ {
 		camera := factoryFn()
 
 		fmt.Printf("Produced a camera of %q\n", camera.Vendor())
 	}
 }
+```
 
-func main() {
-	ProduceCamera(FromNikon, 2)
-	ProduceCamera(FromCanon, 2)
-}
+```
+Produced a camera of "Nikon"
+Produced a camera of "Nikon"
+Produced a camera of "Nikon"
 ```

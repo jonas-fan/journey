@@ -1,7 +1,5 @@
 # Singleton Pattern
 
-Make sure the number of class instances is limited so they are allowed to be shared in an entire system.
-
 ## Go
 
 ```go

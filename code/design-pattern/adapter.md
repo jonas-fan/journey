@@ -10,13 +10,13 @@ import (
 )
 
 type Camera interface {
-	Take() string
+	Take()
 }
 
 type NikonCamera struct{}
 
-func (c *NikonCamera) TakePhoto() string {
-	return "took a photo"
+func (c *NikonCamera) TakePhoto() {
+	fmt.Println("Taking a photo")
 }
 
 func NewNikonCamera() *NikonCamera {
@@ -27,8 +27,8 @@ type NikonCameraAdapter struct {
 	*NikonCamera
 }
 
-func (a *NikonCameraAdapter) Take() string {
-	return a.NikonCamera.TakePhoto()
+func (a *NikonCameraAdapter) Take() {
+	a.NikonCamera.TakePhoto()
 }
 
 func NewNikonCameraAdapter(cam *NikonCamera) *NikonCameraAdapter {
@@ -41,15 +41,10 @@ func main() {
 	var cam Camera
 
 	cam = NewNikonCameraAdapter(NewNikonCamera())
-
-	for i := 0; i < 3; i++ {
-		fmt.Printf("Taking ... %s\n", cam.Take())
-	}
+	cam.Take()
 }
 ```
 
 ```
-Taking ... took a photo
-Taking ... took a photo
-Taking ... took a photo
+Taking a photo
 ```

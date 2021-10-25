@@ -17,3 +17,17 @@
 - [Facade](/code/design-pattern/facade.md)
 - [Flyweight](/code/design-pattern/flyweight.md)
 - [Proxy](/code/design-pattern/proxy.md)
+
+## Behavioral
+
+- [Chain of Responsibility](/code/design-pattern/chain-of-responsibility.md)
+- [Command](/code/design-pattern/command.md)
+- [Interpreter](/code/design-pattern/interpreter.md)
+- [Iterator](/code/design-pattern/iterator.md)
+- [Mediator](/code/design-pattern/mediator.md)
+- [Memento](/code/design-pattern/memento.md)
+- [Observer](/code/design-pattern/observer.md)
+- [State](/code/design-pattern/state.md)
+- [Strategy](/code/design-pattern/strategy.md)
+- [Template Method](/code/design-pattern/template-method.md)
+- [Visitor](/code/design-pattern/visitor.md)
